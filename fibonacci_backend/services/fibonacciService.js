@@ -21,7 +21,12 @@ async function computeFibonacci(n) {
 async function storeFibonacciInDatabase(n, fibonacciArray) {
 	await Promise.all(
 		fibonacciArray.map(async (value, index) => {
-			await Fibonacci.create({ number: index + 1, value: value.toString() });
+			const existingNumber = await Fibonacci.findOne({
+				where: { number: index + 1 },
+			});
+			if (!existingNumber) {
+				await Fibonacci.create({ number: index + 1, value: value.toString() });
+			}
 		})
 	);
 }
