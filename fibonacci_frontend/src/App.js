@@ -1,12 +1,21 @@
 /** @format */
 
 import React, { useState } from "react";
+import axios from "axios";
 
 function App() {
 	const [inputValue, setInputValue] = useState("");
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
+		try {
+			const response = await axios.post("http://localhost:5000/fibonacci", {
+				n: inputValue,
+			});
+			const fibonacciNumbers = response.data.fibonacciArray;
+		} catch (error) {
+			console.error("Error fetching Fibonacci numbers:", error);
+		}
 	};
 
 	return (
