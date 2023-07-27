@@ -15,8 +15,20 @@ const {
 router.post("/fibonacci", async (req, res) => {
 	try {
 		const { n } = req.body;
-		const fibonacciArray = await computeFibonacci(n);
-		await storeFibonacciInDatabase(n, fibonacciArray);
+		const existingNumber = await Fibonacci.findOne({ where: { number: n } });
+
+		let fibonacciArray;
+		if (existingNumber) {
+			fibonacciArray = await Fibonacci.findAll({
+				where: { number: { [Sequelize.Op.lte]: n } },
+			});
+			fibonacciArray = fibonacciArray.map((fibonacci) =>
+				parseInt(fibonacci.value, 10)
+			);
+		} else {
+			fibonacciArray = await computeFibonacci(n);
+			await storeFibonacciInDatabase(n, fibonacciArray);
+		}
 
 		res.json({ fibonacciArray });
 	} catch (error) {
