@@ -19,6 +19,11 @@ app.use(bodyParser.json());
 // Routes
 app.use("/", fibonacciRoutes);
 
+// Default route for the root path
+app.get("/", (req, res) => {
+	res.send("Welcome to the Fibonacci App!");
+});
+
 // Start the server
 async function startServer() {
 	try {
