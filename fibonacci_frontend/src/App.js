@@ -2,9 +2,12 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import Result from "./components/Result";
 
 function App() {
 	const [inputValue, setInputValue] = useState("");
+	const [showResultPage, setShowResultPage] = useState(false);
+	const [fibonacciNumbers, setFibonacciNumbers] = useState([]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -13,6 +16,8 @@ function App() {
 				n: inputValue,
 			});
 			const fibonacciNumbers = response.data.fibonacciArray;
+			setShowResultPage(true);
+			setFibonacciNumbers(fibonacciNumbers);
 		} catch (error) {
 			console.error("Error fetching Fibonacci numbers:", error);
 		}
@@ -20,18 +25,22 @@ function App() {
 
 	return (
 		<div className='App'>
-			<form onSubmit={handleSubmit}>
-				<label>
-					Enter a number (n):
-					<input
-						type='number'
-						value={inputValue}
-						onChange={(e) => setInputValue(e.target.value)}
-						required
-					/>
-				</label>
-				<button type='submit'>Submit</button>
-			</form>
+			{showResultPage ? (
+				<Result fibonacciNumbers={fibonacciNumbers} />
+			) : (
+				<form onSubmit={handleSubmit}>
+					<label>
+						Enter a number (n):
+						<input
+							type='number'
+							value={inputValue}
+							onChange={(e) => setInputValue(e.target.value)}
+							required
+						/>
+					</label>
+					<button type='submit'>Submit</button>
+				</form>
+			)}
 		</div>
 	);
 }
