@@ -1,7 +1,5 @@
 /** @format */
 
-// config/database.js
-
 // This configuration file exports a Sequelize instance that connects this application to PostgreSQL database.
 
 const { Sequelize } = require("sequelize");

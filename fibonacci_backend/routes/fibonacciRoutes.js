@@ -1,7 +1,5 @@
 /** @format */
 
-// routes/fibonacciRoutes.js
-
 // This file defines an Express.js router for handling a POST request to '/fibonacci', where it computes the Fibonacci sequence up to a
 //  given number 'n', stores the result in a database using the 'fibonacciService', and responds with the computed Fibonacci array.
 

@@ -1,7 +1,5 @@
 /** @format */
 
-// models/fibonacciModel.js
-
 // This file defines a Sequelize model for Fibonacci table, which represents Fibonacci numbers and their corresponding values.
 
 const { Sequelize, DataTypes } = require("sequelize");

@@ -1,7 +1,5 @@
 /** @format */
 
-// services/fibonacciService.js
-
 // This file contains functions to compute Fibonacci sequence up to a given number and store the sequence along with its values in database
 // using the Fibonacci model.
 

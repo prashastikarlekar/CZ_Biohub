@@ -1,7 +1,5 @@
 /** @format */
 
-// server.js
-
 // This file sets up an Express server that listens for incoming HTTP requests, includes middleware for JSON parsing, defines routes for
 // Fibonacci calculations, and connects to database using Sequelize to start the server on a specified port.
 
