@@ -26,11 +26,16 @@ function App() {
 	return (
 		<div className='App'>
 			{showResultPage ? (
-				<Result fibonacciNumbers={fibonacciNumbers} />
+				<Result
+					showHome={showResultPage}
+					setShowHome={setShowResultPage}
+					fibonacciNumbers={fibonacciNumbers}
+				/>
 			) : (
 				<form onSubmit={handleSubmit}>
+					<h2>Generate Fibonacci Numbers</h2>
 					<label>
-						Enter a number (n):
+						Enter a number :
 						<input
 							type='number'
 							value={inputValue}
@@ -38,7 +43,9 @@ function App() {
 							required
 						/>
 					</label>
-					<button type='submit'>Submit</button>
+					<button className='btn' type='submit'>
+						Submit
+					</button>
 				</form>
 			)}
 		</div>
