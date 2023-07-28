@@ -18,6 +18,7 @@ async function computeFibonacci(n) {
 	return result;
 }
 
+// The below function stores the earlier computed fibonacci array in database table
 async function storeFibonacciInDatabase(n, fibonacciArray) {
 	await Promise.all(
 		fibonacciArray.map(async (value, index) => {

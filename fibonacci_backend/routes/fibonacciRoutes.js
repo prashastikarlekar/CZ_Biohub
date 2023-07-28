@@ -6,7 +6,10 @@
 //  given number 'n', stores the result in a database using the 'fibonacciService', and responds with the computed Fibonacci array.
 
 const express = require("express");
+const { Sequelize } = require("sequelize");
 const router = express.Router();
+const Fibonacci = require("../models/fibonacciModel.js");
+
 const {
 	computeFibonacci,
 	storeFibonacciInDatabase,
