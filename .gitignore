@@ -1,4 +1,4 @@
 fibonacci_backend/node_modules/
-
+/node_modules
 fibonacci_frontend/node_modules
 fibonacci_frontend/src/reportWebVitals.js
