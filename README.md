@@ -5,6 +5,7 @@
 ## Introduction
 
 The Fibonacci Web App is a simple web application that allows users to generate the first 'n' Fibonacci numbers, where 'n' is an integer provided by the user. The app is built using React.js for the frontend and Node.js with Express.js for the backend. The backend stores computed Fibonacci numbers in a PostgreSQL database to avoid recomputation and improve performance.
+The git repository for the code is https://github.com/prashastikarlekar/CZ_Biohub
 
 ## Logic and Design
 
